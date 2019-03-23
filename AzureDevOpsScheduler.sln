@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28720.180
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDevOpsScheduler.Core", "AzureDevOpsScheduler.Core\AzureDevOpsScheduler.Core.csproj", "{5F9F3141-A389-4E51-8F07-18E934D11449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDevOpsScheduler.Tests", "AzureDevOpsScheduler.Tests\AzureDevOpsScheduler.Tests.csproj", "{4176DE01-988C-4D17-A056-B2F3581017FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F9F3141-A389-4E51-8F07-18E934D11449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9F3141-A389-4E51-8F07-18E934D11449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9F3141-A389-4E51-8F07-18E934D11449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9F3141-A389-4E51-8F07-18E934D11449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4176DE01-988C-4D17-A056-B2F3581017FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4176DE01-988C-4D17-A056-B2F3581017FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4176DE01-988C-4D17-A056-B2F3581017FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4176DE01-988C-4D17-A056-B2F3581017FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E84EADB-2A7C-47F1-90BC-24F701AEB576}
+	EndGlobalSection
+EndGlobal
