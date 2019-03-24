@@ -1,10 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using AzureDevOpsSchedule.Core.Schedule;
-using AzureDevOpsSchedule.Core.Schedule.Monthly;
+using AzureDevOpsScheduler.Core.Schedule;
+using AzureDevOpsScheduler.Core.Schedule.MonthlyExtensions;
 
 namespace AzureDevOpsScheduler.Tests.Schedule
 {
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [TestClass]
     public class MonthlyScheduleTests
     {
@@ -12,9 +13,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestEveryThirdDayOfOneMonths()
         {
             //Arrange
-            ScheduleItem item = new ScheduleItem
+            MonthlySchedule item = new MonthlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Monthly,
+                RecurrenceType = MonthlySchedule.RecurrenceTypeEnum.Monthly,
                 MonthlyEveryNMonthsSelected = true,
                 MonthlyDayOfMonth = 3,
                 MonthlyEveryNMonths = 1,
@@ -38,9 +39,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestEvery22ndDayFor3Months()
         {
             //Arrange
-            ScheduleItem item = new ScheduleItem
+            MonthlySchedule item = new MonthlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Monthly,
+                RecurrenceType = MonthlySchedule.RecurrenceTypeEnum.Monthly,
                 MonthlyEveryNMonthsSelected = true,
                 MonthlyDayOfMonth = 22,
                 MonthlyEveryNMonths = 3,
@@ -63,11 +64,11 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestEverySecondMondayFor3Months()
         {
             //Arrange
-            ScheduleItem item = new ScheduleItem
+            MonthlySchedule item = new MonthlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Monthly,
+                RecurrenceType = MonthlySchedule.RecurrenceTypeEnum.Monthly,
                 MonthlyTheNDaySelected = true,
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.Second,
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.Second,
                 MonthlyTheNDayOfWeek = DayOfWeek.Monday,
                 MonthlyTheNDayDayMonth = 1,
                 RecurrenceStartDate = new System.DateTime(2019, 2, 11),
@@ -91,11 +92,11 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestEveryLastFridayFor3Months()
         {
             //Arrange
-            ScheduleItem item = new ScheduleItem
+            MonthlySchedule item = new MonthlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Monthly,
+                RecurrenceType = MonthlySchedule.RecurrenceTypeEnum.Monthly,
                 MonthlyTheNDaySelected = true,
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.Last,
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.Last,
                 MonthlyTheNDayOfWeek = DayOfWeek.Friday,
                 MonthlyTheNDayDayMonth = 1,
                 RecurrenceStartDate = new System.DateTime(2019, 1, 25),
@@ -117,11 +118,11 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestEverySecondFirstFridayFor6Months()
         {
             //Arrange
-            ScheduleItem item = new ScheduleItem
+            MonthlySchedule item = new MonthlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Monthly,
+                RecurrenceType = MonthlySchedule.RecurrenceTypeEnum.Monthly,
                 MonthlyTheNDaySelected = true,
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.First,
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.First,
                 MonthlyTheNDayOfWeek = DayOfWeek.Friday,
                 MonthlyTheNDayDayMonth = 2,
                 RecurrenceStartDate = new System.DateTime(2019, 1, 4),
@@ -143,31 +144,31 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestDayOfWeek()
         {
             //Arrange
-            ScheduleItem itemMon = new ScheduleItem
+            MonthlySchedule itemMon = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Monday
             };
-            ScheduleItem itemTue = new ScheduleItem
+            MonthlySchedule itemTue = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Tuesday
             };
-            ScheduleItem itemWed = new ScheduleItem
+            MonthlySchedule itemWed = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Wednesday
             };
-            ScheduleItem itemThu = new ScheduleItem
+            MonthlySchedule itemThu = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Thursday
             };
-            ScheduleItem itemFri = new ScheduleItem
+            MonthlySchedule itemFri = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Friday
             };
-            ScheduleItem itemSat = new ScheduleItem
+            MonthlySchedule itemSat = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Saturday
             };
-            ScheduleItem itemSun = new ScheduleItem
+            MonthlySchedule itemSun = new MonthlySchedule
             {
                 MonthlyTheNDayOfWeek = DayOfWeek.Sunday
             };
@@ -188,25 +189,25 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestOccurrence()
         {
             //Arrange
-            ScheduleItem itemFirst = new ScheduleItem
+            MonthlySchedule itemFirst = new MonthlySchedule
             {
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.First
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.First
             };
-            ScheduleItem itemSecond = new ScheduleItem
+            MonthlySchedule itemSecond = new MonthlySchedule
             {
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.Second
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.Second
             };
-            ScheduleItem itemThird = new ScheduleItem
+            MonthlySchedule itemThird = new MonthlySchedule
             {
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.Third
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.Third
             };
-            ScheduleItem itemFourth = new ScheduleItem
+            MonthlySchedule itemFourth = new MonthlySchedule
             {
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.Fourth
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.Fourth
             };
-            ScheduleItem itemLast = new ScheduleItem
+            MonthlySchedule itemLast = new MonthlySchedule
             {
-                MonthlyTheNOccurrence = ScheduleItem.MonthlyTheNOccurrenceEnum.Last
+                MonthlyTheNOccurrence = MonthlySchedule.MonthlyTheNOccurrenceEnum.Last
             };
 
             //Act
@@ -219,6 +220,51 @@ namespace AzureDevOpsScheduler.Tests.Schedule
             Assert.AreEqual(itemLast.GetMonthlyTheNOccurrenceText(), "last");
         }
 
+        [TestMethod]
+        public void TestNullGetMonthlyTheNDayOfWeekText()
+        {
+            try
+            {
+
+                //Arrange
+                MonthlySchedule month = new MonthlySchedule
+                {
+                    MonthlyTheNDayOfWeek = (DayOfWeek)100
+                };
+
+                //Act
+                string result = month.GetMonthlyTheNDayOfWeekText();
+
+                //Assert
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex.Message == "No day of the week found");
+            }
+        }
+
+        [TestMethod]
+        public void TestNullGetMonthlyTheNOccurrenceText()
+        {
+            try
+            {
+
+                //Arrange
+                MonthlySchedule month = new MonthlySchedule
+                {
+                    MonthlyTheNOccurrence = (MonthlySchedule.MonthlyTheNOccurrenceEnum)100
+                };
+
+                //Act
+                string result = month.GetMonthlyTheNOccurrenceText();
+
+                //Assert
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex.Message == "No monthly occurrence found");
+            }
+        }
 
     }
 }

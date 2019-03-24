@@ -1,4 +1,4 @@
-﻿using AzureDevOpsSchedule.Core.Schedule;
+﻿using AzureDevOpsScheduler.Core.Schedule;
 using System;
 using System.Collections.Generic;
 using System.Linq;

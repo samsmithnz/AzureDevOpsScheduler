@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AzureDevOpsSchedule.Core.Schedule.Monthly
+namespace AzureDevOpsScheduler.Core.Schedule.MonthlyExtensions
 {
     public class MonthDay
     {

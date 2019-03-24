@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28720.180
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDevOpsScheduler.Core", "AzureDevOpsScheduler.Core\AzureDevOpsScheduler.Core.csproj", "{5F9F3141-A389-4E51-8F07-18E934D11449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDevOpsScheduler.Core", "AzureDevOpsScheduler.Core\AzureDevOpsScheduler.Core.csproj", "{5F9F3141-A389-4E51-8F07-18E934D11449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDevOpsScheduler.Tests", "AzureDevOpsScheduler.Tests\AzureDevOpsScheduler.Tests.csproj", "{4176DE01-988C-4D17-A056-B2F3581017FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDevOpsScheduler.Tests", "AzureDevOpsScheduler.Tests\AzureDevOpsScheduler.Tests.csproj", "{4176DE01-988C-4D17-A056-B2F3581017FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDevOpsScheduler.Function", "AzureDevOpsScheduler.Function\AzureDevOpsScheduler.Function.csproj", "{FAF03B9F-A1CC-4C45-A9FC-030620B13731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4176DE01-988C-4D17-A056-B2F3581017FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4176DE01-988C-4D17-A056-B2F3581017FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4176DE01-988C-4D17-A056-B2F3581017FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF03B9F-A1CC-4C45-A9FC-030620B13731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF03B9F-A1CC-4C45-A9FC-030620B13731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF03B9F-A1CC-4C45-A9FC-030620B13731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF03B9F-A1CC-4C45-A9FC-030620B13731}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

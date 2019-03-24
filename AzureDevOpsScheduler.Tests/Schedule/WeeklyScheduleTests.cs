@@ -1,9 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using AzureDevOpsSchedule.Core.Schedule;
+using AzureDevOpsScheduler.Core.Schedule;
 
 namespace AzureDevOpsScheduler.Tests.Schedule
 {
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [TestClass]
     public class WeeklyScheduleTests
     {
@@ -11,9 +12,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         public void TestEveryOneWeekOnSunday()
         {
             //Arrange
-            ScheduleItem item = new ScheduleItem
+            WeeklySchedule item = new WeeklySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Weekly,
+                RecurrenceType = WeeklySchedule.RecurrenceTypeEnum.Weekly,
                 WeeklyEveryNWeeks = 1,
                 WeeklyDayOfWeekSunday = true,
                 WeeklyDayOfWeekMonday = false,
@@ -43,9 +44,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         {
             //Arrange
             int numberOfRecurrences = 3;
-            ScheduleItem item = new ScheduleItem
+            WeeklySchedule item = new WeeklySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Weekly,
+                RecurrenceType = WeeklySchedule.RecurrenceTypeEnum.Weekly,
                 WeeklyEveryNWeeks = 2,
                 WeeklyDayOfWeekSunday = false,
                 WeeklyDayOfWeekMonday = true,
@@ -70,15 +71,50 @@ namespace AzureDevOpsScheduler.Tests.Schedule
             Assert.AreEqual(lastDate, dates[dates.Length - 1]);
         }
 
+
+
+
+        [TestMethod]
+        public void TestEveryWeekOnSaturdays()
+        {
+            //Arrange
+            int numberOfRecurrences = 3;
+            WeeklySchedule item = new WeeklySchedule
+            {
+                RecurrenceType = WeeklySchedule.RecurrenceTypeEnum.Weekly,
+                WeeklyEveryNWeeks = 1,
+                WeeklyDayOfWeekSunday = false,
+                WeeklyDayOfWeekMonday = false,
+                WeeklyDayOfWeekTuesday = false,
+                WeeklyDayOfWeekWednesday = false,
+                WeeklyDayOfWeekThursday = false,
+                WeeklyDayOfWeekFriday = false,
+                WeeklyDayOfWeekSaturday = true,
+                RecurrenceStartDate = new DateTime(2019, 1, 5),
+                RecurrenceEndAfterNSelected = true,
+                RecurrenceEndAfterNOccurences = numberOfRecurrences
+            };
+            int numberOfDaysSelected = 1;
+            DateTime lastDate = item.NormalizeDate(item.RecurrenceStartDate.AddDays(((item.WeeklyEveryNWeeks * 7) * item.RecurrenceEndAfterNOccurences) - (item.WeeklyEveryNWeeks * 7) + numberOfDaysSelected - 1));
+
+            //Act
+            item.ProcessFutureDates();
+
+            //Assert
+            Assert.AreEqual(item.Name, "Weekly every " + item.WeeklyEveryNWeeks + " weeks, on Saturdays, for a total of " + item.RecurrenceEndAfterNOccurences * numberOfDaysSelected + " FutureDates");
+            DateTime[] dates = item.FutureDates.ToArray();
+            Assert.AreEqual(lastDate, dates[dates.Length - 1]);
+        }
+
         //This one doesn't work well as a weekend in my current model is a Sunday, with 5 weekdays, and then a saturday, instead of a consectutive Sat + Sun
         //[TestMethod]
         //public void TestEveryThreewWeeksOnWeekends()
         //{
         //    //Arrange
         //    int numberOfRecurrences = 3;
-        //    ScheduleItem item = new ScheduleItem
+        //    WeeklySchedule item = new WeeklySchedule
         //    {
-        //        RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Weekly,
+        //        RecurrenceType = WeeklySchedule.RecurrenceTypeEnum.Weekly,
         //        WeeklyEveryNWeeks = 3,
         //        WeeklyDayOfWeekSunday = true,
         //        WeeklyDayOfWeekMonday = false,

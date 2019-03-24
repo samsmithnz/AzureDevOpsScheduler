@@ -1,9 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using AzureDevOpsSchedule.Core.Schedule;
+using AzureDevOpsScheduler.Core.Schedule;
 
 namespace AzureDevOpsScheduler.Tests.Schedule
 {
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [TestClass]
     public class YearlyScheduleTests
     {
@@ -12,9 +13,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         {
             //Arrange
             int numberOfRecurrences = 10;
-            ScheduleItem item = new ScheduleItem
+            YearlySchedule item = new YearlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Yearly,
+                RecurrenceType = YearlySchedule.RecurrenceTypeEnum.Yearly,
                 YearlyEveryNYearsSelected = true,
                 YearlyEveryNYears = 1,
                 RecurrenceStartDate = DateTime.Now,
@@ -37,9 +38,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         {
             //Arrange
             int numberOfRecurrences = 5;
-            ScheduleItem item = new ScheduleItem
+            YearlySchedule item = new YearlySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Yearly,
+                RecurrenceType = YearlySchedule.RecurrenceTypeEnum.Yearly,
                 YearlyEveryNYearsSelected = true,
                 YearlyEveryNYears = 5,
                 RecurrenceStartDate = DateTime.Now,
