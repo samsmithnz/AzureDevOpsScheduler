@@ -1,9 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using AzureDevOpsSchedule.Core.Schedule;
+using AzureDevOpsScheduler.Core.Schedule;
 
 namespace AzureDevOpsScheduler.Tests.Schedule
 {
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [TestClass]
     public class DailyScheduleTests
     {
@@ -13,9 +14,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         {
             //Arrange
             int numberOfRecurrences = 10;
-            ScheduleItem item = new ScheduleItem
+            DailySchedule item = new DailySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Daily,
+                RecurrenceType = DailySchedule.RecurrenceTypeEnum.Daily,
                 DailyEveryNDaysSelected = true,
                 DailyEveryNDays = 1,
                 RecurrenceStartDate = DateTime.Now,
@@ -38,9 +39,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         {
             //Arrange
             int numberOfRecurrences = 10;
-            ScheduleItem item = new ScheduleItem
+            DailySchedule item = new DailySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Daily,
+                RecurrenceType = DailySchedule.RecurrenceTypeEnum.Daily,
                 DailyEveryNDaysSelected = true,
                 DailyEveryNDays = 2,
                 RecurrenceStartDate = DateTime.Now,
@@ -63,9 +64,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         {
             //Arrange
             int numberOfRecurrences = 3;
-            ScheduleItem item = new ScheduleItem
+            DailySchedule item = new DailySchedule
             {
-                RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Daily,
+                RecurrenceType = DailySchedule.RecurrenceTypeEnum.Daily,
                 DailyEveryNDaysSelected = true,
                 DailyEveryNDays = 7,
                 RecurrenceStartDate = DateTime.Now,
@@ -89,9 +90,9 @@ namespace AzureDevOpsScheduler.Tests.Schedule
         //{
         //    //Arrange
         //    int numberOfRecurrences = 10;
-        //    ScheduleItem item = new ScheduleItem
+        //    DailySchedule item = new DailySchedule
         //    {
-        //        RecurrenceType = ScheduleItem.RecurrenceTypeEnum.Daily,
+        //        RecurrenceType = DailySchedule.RecurrenceTypeEnum.Daily,
         //        DailyEveryWeekDaySelected = true,
         //        RecurrenceStartDate = DateTime.Now,
         //        RecurrenceEndAfterNSelected = true,

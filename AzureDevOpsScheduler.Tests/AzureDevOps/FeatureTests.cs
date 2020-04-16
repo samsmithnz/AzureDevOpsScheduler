@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using AzureDevOpsSchedule.Core.AzureDevOps;
-using AzureDevOpsSchedule.Core.Schedule;
+using AzureDevOpsScheduler.Core.Schedule;
 
 namespace AzureDevOpsScheduler.Tests.AzureDevOps
 {
@@ -23,8 +23,10 @@ namespace AzureDevOpsScheduler.Tests.AzureDevOps
             feature.Tags.Add("Test");
             ScheduleItem item = new ScheduleItem();
             feature.RecurringScheduleItem = item;
-            ADPBI pbi = new ADPBI();
-            pbi.Title = "child pbi";
+            ADPBI pbi = new ADPBI
+            {
+                Title = "child pbi"
+            };
             feature.PBIs.Add(pbi);
 
             //Act

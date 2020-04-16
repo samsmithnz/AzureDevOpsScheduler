@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AzureDevOpsSchedule.Core.Schedule.Monthly
+namespace AzureDevOpsScheduler.Core.Schedule.MonthlyExtensions
 {
     public class MonthDayCollection
     {
@@ -28,31 +28,34 @@ namespace AzureDevOpsSchedule.Core.Schedule.Monthly
             return result;
         }
 
-        public MonthDay FindDayOfWeek(DayOfWeek dayOfWeek, ScheduleItem.MonthlyTheNOccurrenceEnum occurence)
+        public MonthDay FindDayOfWeek(DayOfWeek dayOfWeek, MonthlySchedule.MonthlyTheNOccurrenceEnum occurence)
         {
-            if (occurence != ScheduleItem.MonthlyTheNOccurrenceEnum.Last)
+            MonthDay result = null;
+            if (occurence != MonthlySchedule.MonthlyTheNOccurrenceEnum.Last)
             {
                 //Loop through the days forwards, looking for the right day and occurence
                 foreach (MonthDay item in Days)
                 {
                     if (item.DayOfWeek == dayOfWeek && item.Count == (int)occurence + 1)
                     {
-                        return item;
+                        result = item;
+                        break;
                     }
                 }
             }
-            else if (occurence == ScheduleItem.MonthlyTheNOccurrenceEnum.Last)
+            else if (occurence == MonthlySchedule.MonthlyTheNOccurrenceEnum.Last)
             {
                 //Loop through the days backwards looking for the last day
                 for (int i = Days.Count - 1; i >= 0; i--)
                 {
                     if (Days[i].DayOfWeek == dayOfWeek)
                     {
-                        return Days[i];
+                        result = Days[i];
+                        break;
                     }
                 }
             }
-            return null;
+            return result;
         }
 
     }
